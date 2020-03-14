@@ -240,7 +240,7 @@ step = function(side, ignore)
     if enderchest and not forcibly then
       robot.swing(3) 
     else
-      if energy_level() < 0.98 then
+      if computer.energy()/computer.maxEnergy() < 0.98 then
         print('need charging')
         sleep(30)
       end
@@ -330,10 +330,6 @@ sleep = function(timeout)
   repeat
     computer.pullSignal(deadline-computer.uptime())
   until computer.uptime() >= deadline
-end
-
-energy_level = function()
-  return computer.energy()/computer.maxEnergy()
 end
 
 sorter = function(pack)
