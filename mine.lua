@@ -1,3 +1,5 @@
+local component = require('component')
+local computer = require('computer')
 local quads = {{-7, -7}, {-7, 1}, {1, -7}, {1, 1}}
 
 local function add_component(name)
