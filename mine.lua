@@ -1,5 +1,6 @@
 local component = require('component')
 local computer = require('computer')
+local os = require("os")
 local quads = {{-7, -7}, {-7, 1}, {1, -7}, {1, 1}}
 
 local function add_component(name)
@@ -205,7 +206,7 @@ step = function(side, ignore)
       end
       if not size or size<26 then 
         print('container not found') 
-        sleep(30)
+        os.sleep(30)
       else
         break
       end
@@ -219,7 +220,7 @@ step = function(side, ignore)
           if not a and b == 'inventory full' then
             while not robot.drop(3) do 
               print(b) 
-              sleep(30) 
+              os.sleep(30) 
             end
           end
         end
@@ -242,7 +243,7 @@ step = function(side, ignore)
     else
       if computer.energy()/computer.maxEnergy() < 0.98 then
         print('need charging')
-        sleep(30)
+        os.sleep(30)
       end
     end
     ignore_check = nil
